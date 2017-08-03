@@ -2,7 +2,8 @@ function sp(f, i)
     tr = "TOPRIGHT";
     f2 = f.debuffFrames;
     s = f2[1]:GetWidth();
-    f3 = f2[i];f3:SetSize(s, s);
+    f3 = f2[i];
+    f3:SetSize(s, s);
     f3:ClearAllPoints();
 
     if i > 6 then
