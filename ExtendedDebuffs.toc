@@ -5,5 +5,5 @@
 ## Author: /\/\4$73®/\/\1ÑÐ & TWUBBY
 ## DefaultState: Enabled
 
-ExtendedDebuffs.lua
 Config.lua
+ExtendedDebuffs.lua
