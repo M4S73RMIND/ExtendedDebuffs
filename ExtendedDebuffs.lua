@@ -43,5 +43,4 @@ end
 hooksecurefunc("CompactUnitFrame_UpdateDebuffs",function(f)
 	if f:GetName():match("^Compact") then
 		mv3(f)
-	end
-end)
+	end)
