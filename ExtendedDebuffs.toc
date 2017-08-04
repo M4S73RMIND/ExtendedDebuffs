@@ -1,9 +1,10 @@
 ## Interface: 70200
 ## Title: ExtendedDebuffs
-## Notes: Tracks debuffs on the raid unit frames (requires that the option "keep groups together" is enabled)
+## Notes: Shows all debuffs on the raid unit frames (requires that the option "keep groups together" is enabled in the interface)
 ## Version: v1.0
-## Author: /\/\4$73¬Æ/\/\1√ë√ê & TWUBBY
+## Author: /\/\4$73Æ/\/\1—–
 ## DefaultState: Enabled
+## SavedVariables: EDDB
 
 Config.lua
 ExtendedDebuffs.lua

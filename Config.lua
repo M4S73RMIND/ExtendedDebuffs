@@ -1,5 +1,5 @@
-local _, NS = ...
-NS.options = {
+local _, NAMESPACE = ...
 
-    -- Width & height of the icons. (size between 12-32 recommended)
+NAMESPACE.options = {
     iconSize = 22,
+}
