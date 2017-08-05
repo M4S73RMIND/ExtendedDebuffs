@@ -1,5 +1,5 @@
 local _, NAMESPACE = ...
 
 NAMESPACE.options = {
-    iconSize = 32
+    iconSize = 22
 }

@@ -18,6 +18,7 @@ do
 	end
 	function cf(f, i)
 		bf = CreateFrame("Button", f:GetName().."Debuff"..i, f, "CompactDebuffTemplate")
+		bf.baseSize = ICON_SIZE
 		bf:SetSize(ICON_SIZE, ICON_SIZE)
 	end
 	function mv(f)
