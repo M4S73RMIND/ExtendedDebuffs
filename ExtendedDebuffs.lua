@@ -5,9 +5,7 @@ local ICON_SIZE = options.iconSize
 
 local function cf(self, event)
 	if event == "PLAYER_ENTERING_WORLD" then
-
 		LoadAddOn("Blizzard_CompactRaidFrames")
-
 		CRFSort_Group = function(t1, t2)
 			if UnitIsUnit(t1, "player") then
 				return false
@@ -17,9 +15,8 @@ local function cf(self, event)
 				return t1 < t2
 			end
 		end
-
 		CompactRaidFrameContainer.flowSortFunc = CRFSort_Group
-		DEFAULT_CHAT_GLOBAL:AddMessage("ExtendedDebuffs successfully Loaded!", 0.0, 1.0, 0.0, nil, true);
+		DEFAULT_CHAT_GLOBAL:AddMessage("ExtendedDebuffs successfully Loaded!", 0.0, 1.0, 0.0, nil, true)
 	end
 end
 
