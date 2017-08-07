@@ -7,9 +7,8 @@ local pciscript = CreateFrame("Frame")
 pciscript:RegisterEvent("PLAYER_ENTERING_WORLD")
 
 local function eventHandler(self, event)
-	if event == "PLAYER_ENTERING_WORLD" then
-		LoadAddOn("Blizzard_CompactRaidFrames")
-		CRFSort_Group = function(t1, t2)
+	LoadAddOn("Blizzard_CompactRaidFrames")
+	CRFSort_Group = function(t1, t2)
 		if UnitIsUnit(t1, "player") then
 			return false
 		elseif UnitIsUnit(t2, "player") then
