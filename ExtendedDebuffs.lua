@@ -16,9 +16,9 @@ local function eventHandler(self, event)
 		else
 			return t1 < t2
 		end
-		DEFAULT_CHAT_GLOBAL:AddMessage("ExtendedDebuffs successfully Loaded!", 0.0, 1.0, 0.0, nil, true)
 	end
 	CompactRaidFrameContainer.flowSortFunc = CRFSort_Group
+	DEFAULT_CHAT_GLOBAL:AddMessage("ExtendedDebuffs successfully Loaded!", 0.0, 1.0, 0.0, nil, true)
 end
 
 pciscript:SetScript("OnEvent", eventHandler)
