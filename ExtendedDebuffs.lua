@@ -3,6 +3,26 @@ local _, NAMESPACE = ...
 local options = NAMESPACE.options
 local ICON_SIZE = options.iconSize
 
+local function cf(self, event)
+	if event == "PLAYER_ENTERING_WORLD" then
+
+		LoadAddOn("Blizzard_CompactRaidFrames")
+
+		CRFSort_Group = function(t1, t2)
+			if UnitIsUnit(t1, "player") then
+				return false
+			elseif UnitIsUnit(t2, "player") then
+				return true
+			else
+				return t1 < t2
+			end
+		end
+
+		CompactRaidFrameContainer.flowSortFunc = CRFSort_Group
+		DEFAULT_CHAT_GLOBAL:AddMessage("ExtendedDebuffs successfully Loaded!", 0.0, 1.0, 0.0, nil, true);
+	end
+end
+
 function sp(f, i)
 	local tr = "TOPRIGHT"
 	local br = "BOTTOMRIGHT"
@@ -19,7 +39,7 @@ end
 
 function cf(f, i)
 	bf = CreateFrame("Button", f:GetName().."Debuff"..i, f, "CompactDebuffTemplate")
-	bf.baseSize = ICON_SIZE
+	bf.baseSize = 22
 	bf:SetSize(ICON_SIZE, ICON_SIZE)
 end
 
@@ -46,17 +66,3 @@ hooksecurefunc("CompactUnitFrame_UpdateDebuffs", function(f)
 end)
 
 NAMESPACE.options = nil
-
-LoadAddOn("Blizzard_CompactRaidFrames")
-
-CRFSort_Group = function(t1, t2)
-	if UnitIsUnit(t1, "player") then
-		return false
-	elseif UnitIsUnit(t2, "player") then
-		return true
-	else
-		return t1 < t2
-	end
-end
-
-CompactRaidFrameContainer.flowSortFunc = CRFSort_Group
