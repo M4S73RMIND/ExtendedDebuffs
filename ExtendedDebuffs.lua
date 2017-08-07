@@ -43,25 +43,25 @@ function cf(f, i)
 	bf:SetSize(ICON_SIZE, ICON_SIZE)
 end
 
-function mv(i)
+function mv(f)
 	for i = 4, 12 do
 		sp(f, i)
 	end
 end
 
-function mv3(f, i)
+function mv3(f)
 	CompactUnitFrame_SetMaxDebuffs(f, 12)
 	if not f.debuffFrames[4] then
 		for i = 4, 12 do
 			cf(f, i)
 		end
 	end
-	mv(i)
+	mv(f)
 end
 
 hooksecurefunc("CompactUnitFrame_UpdateDebuffs", function(f)
 	if f:GetName():match("^Compact") then
-		mv3(f, i)
+		mv3(f)
 	end
 end)
 
