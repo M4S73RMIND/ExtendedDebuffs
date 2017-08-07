@@ -3,23 +3,26 @@ local _, NAMESPACE = ...
 local options = NAMESPACE.options
 local ICON_SIZE = options.iconSize
 
-local function cf(event)
-	event = "PLAYER_ENTERING_WORLD"
-	if event then
+local pciscript = CreateFrame("Frame")
+pciscript:RegisterEvent("PLAYER_ENTERING_WORLD")
+
+local function eventHandler(self, event)
+	if event == "PLAYER_ENTERING_WORLD" then
 		LoadAddOn("Blizzard_CompactRaidFrames")
 		CRFSort_Group = function(t1, t2)
-			if UnitIsUnit(t1, "player") then
-				return false
-			elseif UnitIsUnit(t2, "player") then
-				return true
-			else
-				return t1 < t2
-			end
+		if UnitIsUnit(t1, "player") then
+			return false
+		elseif UnitIsUnit(t2, "player") then
+			return true
+		else
+			return t1 < t2
 		end
-		CompactRaidFrameContainer.flowSortFunc = CRFSort_Group
 		DEFAULT_CHAT_GLOBAL:AddMessage("ExtendedDebuffs successfully Loaded!", 0.0, 1.0, 0.0, nil, true)
 	end
+	CompactRaidFrameContainer.flowSortFunc = CRFSort_Group
 end
+
+pciscript:SetScript("OnEvent", eventHandler)
 
 function sp(f, i)
 	local tr = "TOPRIGHT"
