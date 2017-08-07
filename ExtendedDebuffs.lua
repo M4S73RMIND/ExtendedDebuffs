@@ -3,8 +3,9 @@ local _, NAMESPACE = ...
 local options = NAMESPACE.options
 local ICON_SIZE = options.iconSize
 
-local function cf(self, event)
-	if event == "PLAYER_ENTERING_WORLD" then
+local function cf(event)
+	event = "PLAYER_ENTERING_WORLD"
+	if event then
 		LoadAddOn("Blizzard_CompactRaidFrames")
 		CRFSort_Group = function(t1, t2)
 			if UnitIsUnit(t1, "player") then
@@ -36,29 +37,29 @@ end
 
 function cf(f, i)
 	bf = CreateFrame("Button", f:GetName().."Debuff"..i, f, "CompactDebuffTemplate")
-	bf.baseSize = 22
+	bf.baseSize = ICON_SIZE
 	bf:SetSize(ICON_SIZE, ICON_SIZE)
 end
 
-function mv(f)
+function mv(i)
 	for i = 4, 12 do
 		sp(f, i)
 	end
 end
 
-function mv3(f)
+function mv3(f, i)
 	CompactUnitFrame_SetMaxDebuffs(f, 12)
 	if not f.debuffFrames[4] then
 		for i = 4, 12 do
 			cf(f, i)
 		end
 	end
-	mv(f)
+	mv(i)
 end
 
 hooksecurefunc("CompactUnitFrame_UpdateDebuffs", function(f)
 	if f:GetName():match("^Compact") then
-		mv3(f)
+		mv3(f, i)
 	end
 end)
 
