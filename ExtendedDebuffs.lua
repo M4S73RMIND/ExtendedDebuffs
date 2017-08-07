@@ -18,7 +18,7 @@ local function eventHandler(self, event)
 		end
 	end
 	CompactRaidFrameContainer.flowSortFunc = CRFSort_Group
-	DEFAULT_CHAT_GLOBAL:AddMessage("ExtendedDebuffs successfully Loaded!", 0.0, 1.0, 0.0, nil, true)
+	DEFAULT_CHAT_GLOBAL:AddMessage("ExtendedDebuffs loaded successfully!", 0.0, 1.0, 0.0, nil, true)
 end
 
 pciscript:SetScript("OnEvent", eventHandler)
@@ -65,4 +65,4 @@ hooksecurefunc("CompactUnitFrame_UpdateDebuffs", function(f)
 	end
 end)
 
-NAMESPACE.options = nil
+NAMESPACE.options = nil -- Cleanup.
