@@ -18,7 +18,7 @@ local function eventHandler(self, event)
 		end
 	end
 	CompactRaidFrameContainer.flowSortFunc = CRFSort_Group
-	DEFAULT_CHAT_GLOBAL:AddMessage("ExtendedDebuffs loaded successfully!", 0.0, 1.0, 0.0, nil, true)
+	print("ExtendedDebuffs loaded successfully!")
 end
 
 pciscript:SetScript("OnEvent", eventHandler)
@@ -64,5 +64,18 @@ hooksecurefunc("CompactUnitFrame_UpdateDebuffs", function(f)
 		mv3(f)
 	end
 end)
+
+local nf = function()
+end
+
+for n, bar in ipairs({"Action", "MultiBarBottomLeft", "MultiBarBottomRight", "MultiBarLeft", "MultiBarRight"}) do
+	for btnnum = 1, 12 do
+		local btn = bar.."Button"..btnnum
+		if _G[btn] then
+			_G[btn.."HotKey"]:Hide()
+			_G[btn.."HotKey"].Show = nf
+		end
+	end
+end
 
 NAMESPACE.options = nil -- Cleanup.
